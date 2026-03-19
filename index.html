@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Wish</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Metal Mania', cursive;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    overflow:hidden;
+    background:black;
+}
+
+/* 🎬 VIDEO BG */
+.bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+}
+
+/* 🔥 TITLE */
+.top-title{
+    position:absolute;
+    top:10px;
+    text-align:center;
+    width:100%;
+    font-size:16px;
+    color:#ffcc00;
+    text-shadow:0 0 15px red;
+}
+
+/* 🎉 CARD */
+.card{
+    width:90%;
+    max-width:350px;
+    padding:25px;
+    background:rgba(0,0,0,0.7);
+    border-radius:20px;
+    text-align:center;
+    border:2px solid #00ffcc;
+    box-shadow:0 0 20px #00ffcc;
+}
+
+.card-title{
+    font-size:26px;
+    color:#ffcc00;
+}
+
+.name{
+    font-size:22px;
+    color:#00ffff;
+    margin:10px 0;
+}
+
+/* 💥 BUTTON */
+.open-btn{
+    margin-top:10px;
+    padding:10px 20px;
+    border:2px solid #ff00ff;
+    background:transparent;
+    color:#ff00ff;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    box-shadow:0 0 10px #ff00ff;
+}
+
+/* 🎉 POPUP COMMON */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,0.9);
+}
+
+/* 🖼️ IMAGE POPUP */
+.popup-content{
+    background:#000;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.popup-content img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:3px solid #00ffcc;
+    box-shadow:0 0 20px #00ffcc;
+    object-fit:cover;
+}
+
+/* 🎬 VIDEO POPUP */
+.video-popup video{
+    width:90%;
+    max-width:400px;
+    border-radius:10px;
+}
+
+/* ❌ CLOSE */
+.close-btn{
+    margin-top:10px;
+    padding:6px 15px;
+    background:red;
+    border:none;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎬 BACKGROUND VIDEO -->
+<video autoplay muted loop class="bg-video">
+    <source src="Vedio/birthday-wish.mp4" type="video/mp4">
+</video>
+
+<div class="top-title">
+HAPPY UGADI 
+    new beginnings, prosperity, and happiness
+</div>
+
+<div class="card">
+
+<div class="card-title">HAPPY BIRTHDAY</div>
+<div class="name">NIVEDITHA D</div>
+
+<!-- 💥 BUTTON 1 -->
+<button class="open-btn" onclick="openWish()">💥 UNLOCK WISH</button>
+
+<!-- 🎬 BUTTON 2 -->
+<button class="open-btn" onclick="openVideo()">🎬 VIDEO WISH</button>
+
+</div>
+
+<!-- 🎉 IMAGE POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h3>🎉 Happy Birthday 🎉</h3>
+
+    <!-- 🖼️ YOUR IMAGE -->
+    <img src="image/Nive.jpg">
+
+    <p style="color:white;margin-top:10px;">
+    ಹುಟ್ಟು ಹಬ್ಬದ ಶುಭಾಶಯಗಳು ಚಿನ್ನು🎂🔥
+    </p>
+
+    <button class="close-btn" onclick="closeWish()">Close</button>
+  </div>
+</div>
+
+<!-- 🎬 VIDEO POPUP -->
+<div class="popup video-popup" id="videoPopup">
+  <div>
+    <video id="wishVideo" controls>
+        <source src="Vedio/birthday.mp4" type="video/mp4">
+    </video>
+    <br>
+    <button class="close-btn" onclick="closeVideo()">Close</button>
+  </div>
+</div>
+
+<script>
+function openWish(){
+    document.getElementById("popup").style.display="flex";
+}
+
+function openVideo(){
+    let v = document.getElementById("wishVideo");
+    document.getElementById("videoPopup").style.display="flex";
+    v.play(); // 🔊 sound ON
+}
+
+function closeWish(){
+    document.getElementById("popup").style.display="none";
+}
+
+function closeVideo(){
+    let v = document.getElementById("wishVideo");
+    v.pause();
+    document.getElementById("videoPopup").style.display="none";
+}
+</script>
+
+</body>
+</html>
